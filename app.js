@@ -44,6 +44,11 @@ const { title } = require("process");
     res.render("./listings/showPlace.ejs",{showList});
  });
   
+ // New Route-- for getting a form for creating new information insertion from client site 
+  app.get("/listing/new",(req,res)=>{
+     res.render("/listings/new.ejs");
+  });
+
 
 //  //Route--- /Test/listing
 //  app.get("/test/listing",async(req,res)=>{
