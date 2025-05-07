@@ -1,0 +1,22 @@
+<!-- template for individual lists -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Data</title>
+    <link rel="stylesheet" href="../../style.css"/>
+ </head>
+ <body>
+    <h4><%= showList.title %></h4>
+    <div class="showItem">
+      <img src="<%= showList.image %>" alt="placeImage" id="listImage"/>
+        <ul>
+           <li>Description : <%= showList.description%></li>
+           <li>Price : &#8377;<%= showList.price.toLocaleString("en-IN") %></li>
+           <li>Location : <%= showList.location %></li>
+           <li>Country : <%= showList.country %></li>
+         </ul>
+      </div>
+ </body>
+ </html>

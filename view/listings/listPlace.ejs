@@ -1,0 +1,25 @@
+<!-- Template For display all listing place -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust</title>
+  <link rel="stylesheet" href="../../style.css"/>
+</head>
+<body>
+  <h3>All Listing </h3>
+  <% for(let list of allList){ %>
+   <div class="listItem">
+     <ul>
+        <li>Title : <a href="/listing/<%= list._id %>"><%= list.title %></a></li>
+        <li>Description : <%= list.description%></li>
+        <li>Url : <a href="<%= list.image %>" target="_main">visit here.</a></li>
+        <li>Price : &#8377;<%= list.price.toLocaleString("en-IN") %></li>
+        <li>Location : <%= list.location %></li>
+        <li>Country : <%= list.country %></li>
+      </ul>
+   </div>
+   <% } %>
+</body>
+</html>
