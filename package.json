@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Hi and welcome to skill learning and practice class , i am going to build a full-stack-website for the tourist,home-owner,hotel-owner to sell their home,room and give room on rent also .\r just give me 2days to complete because i have to also looked into Acedemic Section",
   "main": "index.js",
-  "type" : "commonjs",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Mr-Raza-Alam/First_Major_Project#readme",
   "dependencies": {
     "ejs": "^3.1.10",
+    "ejs-mate": "^4.0.0",
     "express": "^5.1.0",
     "method-override": "^3.0.0",
     "mongoose": "^8.14.1"

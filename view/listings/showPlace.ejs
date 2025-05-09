@@ -1,22 +1,37 @@
 <!-- template for individual lists -->
- <!DOCTYPE html>
- <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Data</title>
-    <link rel="stylesheet" href="../../style.css"/>
- </head>
+<!-- now i am going to include boilerplate code of ejs-Mate -->
+ <% layout("/layouts/boilierPlate") -%>
  <body>
     <h4><%= showList.title %></h4>
-    <div class="showItem">
-      <img src="<%= showList.image %>" alt="placeImage" id="listImage"/>
-        <ul>
-           <li>Description : <%= showList.description%></li>
-           <li>Price : &#8377;<%= showList.price.toLocaleString("en-IN") %></li>
-           <li>Location : <%= showList.location %></li>
-           <li>Country : <%= showList.country %></li>
-         </ul>
-      </div>
+   <div class="card col" style="width: 40rem;">
+   <img src="<%= showList.image %>" class="card-img-top" alt="listing_image" style="height : 20rem;">
+   <div class="card-body">
+    <h5 class="card-title"><%= showList.title %></h5>
+    <p class="card-text">
+      &#8377;<%= showList.price.toLocaleString("en-IN")%>/3nights <br>
+      <%= showList.location %> <br>
+      <%= showList.country %> 
+    </p>
+    <div class="someBtn">
+      <a href="/listing/back" class="btn btn-secondary">&lt;&lt;Back</a>
+      <a href="/listing/<%= showList._id %>/edit" class="btn btn-primary">Edit&gt;&gt;</a>
+      <form method="post" action="/listing/<%= showList._id %>?_method=Delete">
+        <button id="delBtn" type="button" class="btn btn-danger">Delete</button>
+      </form>
+     </div>
+    </div>
+  </div>
  </body>
- </html>
+
+ <!-- 
+     <div class="showItem">
+      <img src="</%= showList.image %>" alt="placeImage" id="listImage"/>
+        <ul>
+           <li><b>Description : </b> </%= showList.description%></li>
+           <li><b>Price : </b> &#8377;</%= showList.price.toLocaleString("en-IN") %></li>
+           <li> <b>Location : </b></%= showList.location %></li>
+           <li> <b>Country : </b></%= showList.country %></li>
+         </ul>
+     
+      </div>
+ -->

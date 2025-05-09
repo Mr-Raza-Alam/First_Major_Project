@@ -1,0 +1,16 @@
+<!-- template for new creating form for user input -->
+<!-- now i am going to include boilerplate code of ejs-Mate -->
+ <% layout("/layouts/boilierPlate") -%>
+<body>
+ <form method="post" action="/listings" class="createForm">
+    <b>Title : </b><input type="text" name="listing[title]">
+     <label for="desc"> <b>Description : </b></label><br>
+        <textarea name="listing[description]" id="desc" rows="6" cols="45"></textarea>
+    <b>Image-URL :</b> <input type="text" name="listing[image]">
+    <b>Price :</b> &nbsp; &nbsp; <input type="number" name="listing[price]">
+    <b>Location :</b> &nbsp;<input type="text" name="listing[location]">
+    <b>Country :</b> &nbsp;&nbsp;<input type="text" name="listing[country]">
+    <button type="submit" id="newBtn">Add Up</button>
+        <button id="showEditBtn">  <a href="/listing/newBack"> &lt;&lt;Back </a> </button>
+</form>
+</body>
