@@ -2,28 +2,41 @@
 <!-- now i am going to include boilerplate code of ejs-Mate -->
  <% layout("/layouts/boilierPlate") -%>
  <body>
-    <h4><%= showList.title %></h4>
-   <div class="card col" style="width: 40rem;">
-   <img src="<%= showList.image %>" class="card-img-top" alt="listing_image" style="height : 20rem;">
-   <div class="card-body">
-    <h5 class="card-title"><%= showList.title %></h5>
-    <p class="card-text">
-      &#8377;<%= showList.price.toLocaleString("en-IN")%>/3nights <br>
-      <%= showList.location %> <br>
-      <%= showList.country %> 
+  <div class="row">
+    <h2>Listing Details</h2>
+   <div class="card col-6 offset-3" style="width: 30rem;">
+   <img src="<%= showList.image %>" class="card-img-top show-img" alt="listing_imgae">
+    <h5><%= showList.title %></h5>  
+ <div class="card-body">
+     <p class="card-text">
+      <%= showList.description %> <br>
+     <b>&#8377;<%= showList.price.toLocaleString("en-IN")%>/3nights</b> <br>
+     <%= showList.location %> <br>
+     <%= showList.country %> <br>
     </p>
-    <div class="someBtn">
-      <a href="/listing/back" class="btn btn-secondary">&lt;&lt;Back</a>
-      <a href="/listing/<%= showList._id %>/edit" class="btn btn-primary">Edit&gt;&gt;</a>
-      <form method="post" action="/listing/<%= showList._id %>?_method=Delete">
-        <button id="delBtn" type="button" class="btn btn-danger">Delete</button>
-      </form>
+    <div class="cardBody">
+    <a href="/listings/<%= showList._id %>/edit" class="btn btn-primary">Edit &gt;&gt;</a>
+    <form method="post" action="/listings/<%= showList._id %>?_method=DELETE">
+        <button id="delBtn" type="submit" class="btn btn-danger">Delete</button>
+        </form>
      </div>
-    </div>
+   </div>
   </div>
+
+  <div class="card-body">
+      <a href="/listings/back" class="btn btn-secondary">&lt;&lt;Back</a>
+    <!-- <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a> -->
+  </div>
+ </div>
  </body>
 
  <!-- 
+   <ul class="list-group list-group-flush">
+    <li class="list-group-item"> &#8377;</%= showList.price.toLocaleString("en-IN")%>/3nights</li>
+    <li class="list-group-item"></%= showList.location %></li>
+    <li class="list-group-item"></%= showList.country %></li>
+  </ul>
      <div class="showItem">
       <img src="</%= showList.image %>" alt="placeImage" id="listImage"/>
         <ul>
@@ -34,4 +47,24 @@
          </ul>
      
       </div>
+
+          <h4></%= showList.title %></h4>
+   <div class="card col" style="width: 40rem;">
+   <img src="</%= showList.image %>" class="card-img-top" alt="listing_image" style="height : 20rem;">
+   <div class="card-body">
+    <h5 class="card-title"></%= showList.title %></h5>
+    <p class="card-text">
+      &#8377;</%= showList.price.toLocaleString("en-IN")%>/3nights <br>
+      </%= showList.location %> <br>
+      </%= showList.country %> 
+    </p>
+    <div class="someBtn">
+      <a href="/listing/back" class="btn btn-secondary">&lt;&lt;Back</a>
+      <a href="/listing/</%= showList._id %>/edit" class="btn btn-primary">Edit&gt;&gt;</a>
+      <form method="post" action="/listing/</%= showList._id %>?_method=Delete">
+        <button id="delBtn" type="button" class="btn btn-danger">Delete</button>
+      </form>
+     </div>
+    </div>
+  </div>
  -->

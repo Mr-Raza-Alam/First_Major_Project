@@ -2,10 +2,14 @@
 body{
   font-family: 'Courier New', Courier, monospace;
   font-size: large;
-   margin-left: 1.4rem;
+  margin-left: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .container{
   margin-top: 2rem;
+  flex: 1;
 }
 .listItem{
   background-color: rgb(20, 149, 123);
@@ -43,23 +47,32 @@ body{
   display: flex;
   gap: 1.8rem;
 }
+/* .addBtn #newBtn{
+  color: #fe424d;
+  border: none !important;
+} */
 
 .someBtn {
    display: flex;
    justify-content: space-around;
 }
-.createForm,.editForm{
+/* .createForm is off for now */
+/* .editForm{
   height: 35rem;
   width: 60%;
    border: 2px solid;
    display: flex;
    flex-direction: column;
-   justify-content: center;
-   align-items: center;
+   justify-content: space-evenly;
+} */
+.addBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.createForm h4{
+/* .createForm h4{
   margin: 1rem;
-}
+} */
 .createForm input{
   border-radius: .4rem;
 }
@@ -142,6 +155,38 @@ body{
   opacity: 0;
 }
 .card-img-overlay:hover{
-  opacity: 0.25;
+  opacity: 0.2;
   background-color: white;
+}
+
+/* Show Page */
+.show-img{
+  height: 30vh;
+}
+
+.cardBody{
+  display: flex;
+}
+.cardBody a{
+  width: 5rem;
+}
+.cardBody form{
+  margin-left: 2rem;
+}
+.cardBody form button{
+  width: 5rem;
+}
+
+/* Edit form */
+.editBtn{
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content:flex-start;
+  gap: 3rem;
+}
+.editBtn a{
+  margin-top: 1rem;
+  width: 7rem;
+  height: 2rem;
+
 }

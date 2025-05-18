@@ -13,9 +13,9 @@ const Schema = mongoose.Schema;
     },
     image : {
       type : String,
-      default : "https://unsplash.com/photos/people-sitting-down-near-table-with-assorted-laptop-computers-SYTO3xs06fU",
+      default : "https://images.unsplash.com/photo-1502082553048-f009c37129b9",
       set : (v)=>// for user/client
-        v === "" ? "https://unsplash.com/photos/people-sitting-down-near-table-with-assorted-laptop-computers-SYTO3xs06fU" : v,
+        v === "" ? "https://images.unsplash.com/photo-1502082553048-f009c37129b" : v,
     },
    price :{
     type : Number,

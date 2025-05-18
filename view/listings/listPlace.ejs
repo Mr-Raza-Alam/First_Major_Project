@@ -6,20 +6,21 @@
  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
   <% for(let list of allList){ %>
    <div class="card col">
-    <a href="/listing/<%= list._id %>" class="listing-link">
+    <a href="/listings/<%= list._id %>" class="listing-link">
     <img src="<%= list.image %>" class="card-img-top" alt="listing_image" style="height : 20rem;">
       <div class="card-img-overlay">
          <!-- new listing -->
       </div>
+     </a>
       <div class="card-body">
        <h5 class="card-title"><%= list.title %></h5>
        <p class="card-text">
         &#8377;<%= list.price.toLocaleString("en-IN")%>/3nights       
       </p>
-      <a href="/listing/<%= list._id %>" class="btn btn-primary">Know more>></a>
+      <a href="/listings/<%= list._id %>" class="btn btn-primary">Know more>></a>
      </div>
    </div>
- </a>
+
    <% } %>
  </div>
 </body>
