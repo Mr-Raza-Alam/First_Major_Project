@@ -1,0 +1,53 @@
+<!-- This is for signup page -->
+
+ <% layout("/layouts/boilierPlate") -%>
+<h1 class="col-8 offset-5"><u>Signup on Wanderlust</u></h1>
+<div class="row mt-4">
+ <div class="col-8 offset-3">
+   <form action="/listings/signup" method="post" class="needs-validation" novalidate>
+    <div class="mb-3">
+     <label for="name" class="form-label"><b>Username</b></label>
+     <input type="text"  name="username" class="form-control" id="name"  required/>
+    <div class="valid-feedback">
+      Nice username!!
+     </div>
+     <div class="invalid-feedback">
+      <b>Username missing.Please mention an Username</b>
+     </div>
+    </div>
+
+  <div class="mb-3">
+     <label for="email" class="form-label"><b>Email-id</b></label>
+     <input type="email"  name="email_id" class="form-control" id="email"  required/>
+    <div class="valid-feedback">
+      valid email_id!!
+     </div>
+     <div class="invalid-feedback">
+      <b>Invalide email-id</b>
+     </div>
+  </div>
+       <div class="mb-3">
+     <label for="mobile" class="form-label"><b>Contact Number</b></label>
+     <input type="text"  name="phone_No" class="form-control" id="mobile"  required/>
+    
+     <div class="invalid-feedback">
+      <b>Contact number is required!</b>
+     </div>
+    </div>
+           <div class="mb-3">
+     <label for="pass" class="form-label"><b>Password</b></label>
+     <input type="password"  name="password" class="form-control" id="pass"  required/>
+    <div class="valid-feedback">
+      Strong password!!
+     </div>
+     <div class="invalid-feedback">
+      <b>Not a strong password.Password must contain atleast one capital letter and @#? charaters.</b>
+     </div>
+    </div>
+
+    <button class="btn btn-success">Signup</button>
+
+    </form>
+ </div>
+
+</div>

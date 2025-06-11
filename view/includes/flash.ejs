@@ -1,0 +1,27 @@
+<!-- flash messge -->
+ <!-- <h4>Flash message for sucees
+    </%= success -- this is actually an array so, apply condition only succes exit and also success.length >0
+    
+    %></h4> -->
+<%if(success && success.length){%>
+<div class="alert alert-success alert-dismissible fade show col-5 offset-3" role="alert">
+    <%= success %>
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<%}else if(remove && remove.length){%>
+<div class="alert alert-dark alert-dismissible fade show col-5 offset-3" role="alert">
+    <%= remove %>
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<%}else if(update && update.length){%>
+<div class="alert alert-info alert-dismissible fade show col-5 offset-3" role="alert">
+    <%= update %>
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<%}else if(error && error.length){%>    
+<div class="alert alert-danger alert-dismissible fade show col-5 offset-3" role="alert">
+    <%= error %>
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+ <%}%>

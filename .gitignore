@@ -1,0 +1,4 @@
+#write such file name that want to protect from github
+.env
+node_modules/
+

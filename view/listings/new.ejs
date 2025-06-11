@@ -1,0 +1,127 @@
+<!-- template for new creating form for user input -->
+<!-- now i am going to include boilerplate code of ejs-Mate -->
+ <% layout("/layouts/boilierPlate") -%>
+<body>
+  <div class="row">
+ <form method="post" action="/listings" novalidate class="createForm needs-validation" enctype="multipart/form-data"> 
+   <!-- here client site validations are also included in it -->
+   <div class="col-8 offset-2" >
+     <h3 style="text-align: center;">Create a new list</h3>
+    <div class="mb-3">
+     <label for="tit" class="form-label"><b>Title</b></label>
+     <input type="text"  name="listing[title]" class="form-control" id="tit" placeholder="Add a cachy title" required/>
+    <div class="valid-feedback">
+      Valid Title!!Looks Good.
+     </div>
+     <div class="invalid-feedback">
+      <b>Oops your are missing to mention the <u>Title</u>.</b>
+     </div>
+    </div>
+  
+   <div class="mb-3">
+    <label for="desc" class="form-label"> <b>Description </label>
+    <textarea name="listing[description]" id="desc" rows="6" cols="45" class="form-control" required></textarea>
+    <div class="valid-feedback">
+      Okay fine!!.
+     </div>
+    <div class="invalid-feedback">
+      You missed to drop your description.Please Mention Once!!.
+     </div>
+   </div>
+  
+    <div class="mb-3">
+     <label for="image" class="form-label">Upload Image (<i>file's size must be less than 1.4mb</i>)</label>
+     <input type="file" id="image" name="listing[image]" class="form-control" required>
+     <div class="valid-feedback">
+        Thank you to upload an img !!.
+     </div>
+     <div class="invalid-feedback">
+       upload image with file'size must be less than 700kb in jpeg format.
+     </div>
+    </div>
+    <div class="row">
+    <div class="mb-3 col-md-4">
+     <label for="price" class="form-label">Price</label>
+     <input type="text" name="listing[price]" class="form-control" id="price" placeholder="1390" required >
+     <div class="valid-feedback">
+       successfully price has mention.Thank you!!.
+     </div>
+    <div class="invalid-feedback">
+      What is the price??
+     </div>
+    </div>
+
+    <div class="mb-3 col-md-8">
+    <label for="count" class="form-label">Country</label>
+    <input type="text" id="count" name="listing[country]" class="form-control" placeholder="India">
+    <div class="valid-feedback">
+      Peaceful country.
+     </div>
+    <div class="invalid-feedback">
+      In which country,your resisdent is located??
+     </div>
+    </div>
+ </div>
+
+  
+    <div class="mb-3">
+     <label for="locate" class="form-label" >Location</label>
+    <input type="text" class="form-control" name="listing[location]" id="locate" placeholder="Assam,Punjab" required>
+    <div class="valid-feedback">
+      Nice Location!!Looking Good.
+     </div>
+    <div class="invalid-feedback">
+      Don't missed it to mention your current resisdent location!!.
+     </div>
+    </div>
+    <!-- for checkbox to confirm with Agree term and condtions -->
+  <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+    <label class="form-check-label" for="invalidCheck">
+        Agree to terms and conditions
+     </label>
+    <div class="invalid-feedback">
+        You must agree before submitting.
+    </div>
+   </div>
+  <!-- here required  is a keyword that  by-default set a constraint to the field where it settled then it must require from the user other passed them to next -->
+    <div class="addBtn mb-3">
+    <a href="/listings/newBack" class="btn btn-secondary" role="button" style="width: 8rem; height: 2.5rem; margin:1.2rem 3rem 0 0;">
+        &lt;&lt;Back</a>
+        <button type="submit " id="newBtn" class="btn btn-success">Add Up</button>   
+    </div>
+  </div>
+ </form>
+</div>
+</body>
+<!-- 
+     <input type="url" id="image" name="listing[image]" class="form-control" placeholder="enter image URL/Link">
+  mb-3 -- means marginBottom : 3unit
+ <form method="post" action="/listings" class="createForm">
+    <b>Title : </b><input type="text" name="listing[title]">
+     <label for="desc"> <b>Description : </b></label><br>
+        <textarea name="listing[description]" id="desc" rows="6" cols="45"></textarea>
+    <b>Image-URL :</b> <input type="text" name="listing[image]">
+    <b>Price :</b> &nbsp; &nbsp; <input type="number" name="listing[price]">
+    <b>Location :</b> &nbsp;<input type="text" name="listing[location]">
+    <b>Country :</b> &nbsp;&nbsp;<input type="text" name="listing[country]">
+    <button type="submit" id="newBtn">Add Up</button>
+        <button id="showEditBtn">  <a href="/listing/newBack"> &lt;&lt;Back </a> </button>
+</form>
+
+-->
+
+<!-- 
+<div class="mb-3 row">
+  <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+  <div class="col-sm-10">
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+  <div class="col-sm-10">
+    <input type="password" class="form-control" id="inputPassword">
+  </div>
+</div>
+-->

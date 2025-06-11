@@ -1,0 +1,57 @@
+<!-- Template for edit form -->
+ <!-- now i am going to include boilerplate code of ejs-Mate -->
+ <% layout("/layouts/boilierPlate") -%>
+
+ <body>
+   <div class="row">
+     <div class="col-8 offset-2">
+      <h3>Edit your listing</h3>
+      <form method="post" action="/listings/<%= editing._id%>?_method=PUT" class="editForm" enctype="multipart/form-data">
+        <div class="mb-3">
+         <label for="tit" class="form-label">Title</label>
+        <input type="text" id="tit"  name="listing[title]" value="<%= editing.title %>"class="form-control">
+        </div>
+        <div class="mb-3">
+          <b>Original Listing Image</b><br>
+          <img src="<%= originalImageUrl %>" alt="listing-image"/>
+        </div>
+         <div class="mb-3">
+         <label for="img" class="form-label">Upload New Listing Image</label>
+         <input type="file" id="img"  name="listing[image]"  class="form-control">
+        </div>
+        <div class="mb-3">
+        <label for="desc" class="form-label">Description :</label>
+        <textarea  name="listing[description]"  id="desc" rows="6" cols="45"class="form-control"><%= editing.description %></textarea>
+        </div>
+       <div class="row">
+          <div class="mb-3 col-md-4">
+           <label for="price" class="form-label">Price : </label>
+          <input type="number" id="price" name="listing[price]" value="<%= editing.price %>"class="form-control">
+         </div>
+
+        <div class="mb-3 col-md-8">
+        <label for="count" class="form-label">Country : </label>
+         <input type="text"  name="listing[country]" value="<%= editing.country %>" id="count" class="form-control">
+        </div>
+    </div>
+     
+        <div class="mb-3">
+        <label for="locate" class="form-label">Location : </label>
+        <input type="text"  name="listing[location]" value="<%= editing.location %>" class="form-control" id="locate">
+        </div>
+   
+        <div class="editBtn">
+          <a href="/listings/<%= editing._id %>/editBack" class="btn btn-secondary"> &lt;&lt;Back </a> 
+          <button type="submit"  id="editBtn">Edit</button>
+        </div>
+     </form>
+   </div>
+</div>
+ </body>
+
+ <!-- 
+   <div class="mb-3">
+         <label for="img" class="form-label">Image Link</label>
+         <input type="text" id="img"  name="listing[image]" value="</%= editing.image %>" class="form-control">
+        </div> 
+ -->
