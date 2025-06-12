@@ -71,10 +71,6 @@ async function main(){
     console.log(err);
  });
 
- app.get("/",(req,res)=>{// for icon
-    //req.flash("success","Welcome to wanderlust's home-page");
-    res.render("listings/home_page.ejs");
- });
 
  app.use(session(sessionOption)); // to use session i.e a middleware
  app.use(flash()); // this is again a middleware
@@ -97,6 +93,10 @@ async function main(){
 //------Above this line all are middleware and below this all are req-res routes 
 
 
+ app.get("/",(req,res)=>{// for icon
+    //req.flash("success","Welcome to wanderlust's home-page");
+    res.render("listings/home_page.ejs");
+ });
 
 // for signup
 app.use("/listings",usersRouter);
