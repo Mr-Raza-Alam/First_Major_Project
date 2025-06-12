@@ -9,7 +9,7 @@ module.exports.renderLoginForm = (req,res)=>{
    res.render("users/login.ejs");
 };
 
-module.exports.signedUp = async(req,res)=>{// this is an async b/c here DB is playing role
+module.exports.signedUp = async(req,res,next)=>{// this is an async b/c here DB is playing role
 try{// here i include custom validation
    let {username,email_id,phone_No,password} = req.body;
   const newUser =  new User({email_id,phone_No,username});

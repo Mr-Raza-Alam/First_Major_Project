@@ -75,7 +75,7 @@ module.exports.validImgSize = (req,res,next)=>{
     req.flash("error", "Image is required.");
     return res.redirect("/listings/new");
   }
- const max = 1400 * 1024;
+ const max = 1000 * 1024;
   if (req.file.size > max) {
     req.flash("error", "Image size must be under 1.4 MB.");
     return res.redirect("/listings/new");
