@@ -22,11 +22,7 @@ const localStrategy = require("passport-local");
 const User = require("./models/User.js");
 
  // now established Web server at some port 
-const dbUrl = process.env.ATLASDB_URL
 
-app.listen(3300,()=>{
-    console.log("Web server has been started at port : 3300.");
-});
 app.engine("ejs",ejsMate);//define an engine for ejsMate Of EJS
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"view"));
@@ -34,10 +30,12 @@ app.use(express.urlencoded({extended : true}));
 app.use(express.static(path.join(__dirname,"public")));
  app.use(methodOverride("_method"));
  
+ const dbUrl = process.env.ATLASDB_URL;
+ 
  const store = mongoStore.create({
    mongoUrl : dbUrl,
    crypto : {
-     secret : process.env.SECRET,     
+     secret : process.env.SECRET  ,     
    },
    touchAfter : 24 * 3600, // i.e. 24 hrs
 });
@@ -50,17 +48,21 @@ store.on("error",()=>{
    resave : false,
    saveUninitialized : false,
    cookie : {
-       // Date.now() return current date + after how much ms time the session will deleted automatically let say 7days
+    // Date.now() return current date + after how much ms time the session will deleted automatically let say 7days
       expires : new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       maxAge : 7 * 24 * 60 * 60 * 1000,
       httpOnly : true,// use to prevent from cross-scripting attacks i.e for security purpose.
+      secure: process.env.NODE_ENV === "production",
    },
  }
 
 // now established DataBase connection
 async function main(){
 //   "mongodb://127.0.0.1:27017/wanderTust"
-   await mongoose.connect(dbUrl);
+   await mongoose.connect(dbUrl,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 }
  // call main function
  main().then((res)=>{
@@ -115,6 +117,10 @@ app.all("/*path",(req,res,next)=>{
    //  res.status(statusCode).send(message);
    // res.send(`Something went wrong.!! ${err}`);// use it i) when try-catch is used ii) when warpAsync is used iii)  when custom error class is used
  });
+
+app.listen(3300,()=>{
+    console.log("Web server has been started at port : 3300.");
+});
 
  // for demoUser--registeration
 // app.get("/demouser",async(req,res)=>{
