@@ -42,7 +42,7 @@
       </div>
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="/listings/new">Airbnb your home</a>
-        <% if(!currUser){ %>
+        <% if(typeof currUser === "undefined" || !currUser){ %>
         <a class="nav-link active" aria-current="page" href="/listings/signup"><b>Signup</b></a>
         <a class="nav-link" href="/listings/login"><b>Login</b></a>
         <%}else{ %>
