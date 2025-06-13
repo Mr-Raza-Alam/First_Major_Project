@@ -15,7 +15,7 @@ module.exports.index = async(req,res)=>{
   };
 
 module.exports.createListing = async(req,res)=>{
- let response = await geocodingClient.forwardGeocode({
+ let response = await geocodingClient.forwardGeocode({// it will convert the given location into its coordinate and give ar array result
   query: req.body.listing.location,
   limit: 1
 }).send()  

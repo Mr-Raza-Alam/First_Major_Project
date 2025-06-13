@@ -47,7 +47,6 @@ const User = require("./User.js");
       required : true
      },
   },
-
  });
  // this mongoose middleware-- to delete all reviews data from DB of corresponding listing has been deleted.
  listingSchema.post("findOneAndDelete",async(listing)=>{

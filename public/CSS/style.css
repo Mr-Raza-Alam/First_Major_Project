@@ -193,4 +193,6 @@ body{
 #map { 
   height: 400px;
   width: 80vh;
+  border: 2px solid;
+  border-radius: 1rem;
  }

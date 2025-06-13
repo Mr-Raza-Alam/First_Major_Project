@@ -1,11 +1,10 @@
 <!-- template for individual lists -->
 <!-- now i am going to include boilerplate code of ejs-Mate -->
+
  <% layout("/layouts/boilierPlate") -%>
- <script>// this is to send following data to map.js in public folder 
+  <script>// this is to send following data to map.js in public folder 
   const mapToken = "<%= process.env.MAP_TOKEN%>";
-  //const listing = </%-JSON.stringify(showList)%>;
  </script>
- <body>
   <div class="row">
    <div class="card col-6 offset-3 listing-card" style="width: 30rem;">
     <h5><%= showList.title %></h5>  
@@ -92,6 +91,7 @@
     <h3>Where you'll be</h3>
     <div id="map" data-coordinates='<%= JSON.stringify(showList) %>'></div>
    </div>
+   
   <div class="card-body">
       <a href="/listings/back" class="btn btn-secondary">&lt;&lt;Back</a>
     <!-- <a href="#" class="card-link">Card link</a>
@@ -99,7 +99,6 @@
   </div>
  </div>
 <script src="/JS/map.js"> </script>
-</body>
 
  <!-- 
     <p class="card-text"><b></%= review.rating %>stars</b></b></p>

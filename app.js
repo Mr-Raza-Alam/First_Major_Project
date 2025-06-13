@@ -2,7 +2,7 @@
  if(process.env.NODE_ENV != "production"){
    require('dotenv').config();
  }
- //console.log(process.env.SECRET);
+ //console.log(process.env.MAP_TOKEN);
 
  const express = require("express");
  const path = require("path");
@@ -30,39 +30,36 @@ app.use(express.urlencoded({extended : true}));
 app.use(express.static(path.join(__dirname,"public")));
  app.use(methodOverride("_method"));
  
- const dbUrl = process.env.ATLASDB_URL;
+//  const dbUrl = process.env.ATLASDB_URL;
  
- const store = mongoStore.create({
-   mongoUrl : dbUrl,
-   crypto : {
-     secret : process.env.SECRET  ,     
-   },
-   touchAfter : 24 * 3600, // i.e. 24 hrs
-});
-store.on("error",()=>{
-  console.log(`ERROR in mongo Session Store and error is : ${err}`)
-});
+//  const store = mongoStore.create({
+//    mongoUrl : dbUrl,
+//    crypto : {
+//      secret : process.env.SECRET  ,     
+//    },
+//    touchAfter : 24 * 3600, // i.e. 24 hrs
+// });
+// store.on("error",()=>{
+//   console.log(`ERROR in mongo Session Store and error is : ${err}`)
+// });
  const sessionOption = {
-   store,
+   //store,
    secret : process.env.SECRET,
    resave : false,
-   saveUninitialized : false,
+   saveUninitialized : true,
    cookie : {
     // Date.now() return current date + after how much ms time the session will deleted automatically let say 7days
       expires : new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       maxAge : 7 * 24 * 60 * 60 * 1000,
       httpOnly : true,// use to prevent from cross-scripting attacks i.e for security purpose.
-      secure: process.env.NODE_ENV === "production",
+      //secure: process.env.NODE_ENV === "production",
    },
  }
 
 // now established DataBase connection
 async function main(){
 //   "mongodb://127.0.0.1:27017/wanderTust"
-   await mongoose.connect(dbUrl,{
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+   await mongoose.connect("mongodb://127.0.0.1:27017/wanderTust");
 }
  // call main function
  main().then((res)=>{
@@ -122,7 +119,12 @@ app.listen(3300,()=>{
     console.log("Web server has been started at port : 3300.");
 });
 
- // for demoUser--registeration
+/*
+(dbUrl,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}
+// for demoUser--registeration
 // app.get("/demouser",async(req,res)=>{
 //    let fakeUser = new User({
 //       email_id : "student54@gmail.com",
@@ -161,3 +163,4 @@ app.listen(3300,()=>{
 //    res.send("Hurray!!You have successfully done everything properly.");
 //  });
 
+*/
