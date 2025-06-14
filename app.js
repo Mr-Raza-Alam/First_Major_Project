@@ -3,9 +3,7 @@
 //    require('dotenv').config();
 //  }
  //console.log(process.env.MAP_TOKEN);
-if (process.env.NODE_ENV === "production") {
-  app.set("trust proxy", 1);
-}
+
 
  const express = require("express");
  const path = require("path");
@@ -34,6 +32,9 @@ app.use(express.static(path.join(__dirname,"public")));
  app.use(methodOverride("_method"));
  
  const dbUrl = process.env.ATLASDB_URL;
+ if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
+}
  
  const store = mongoStore.create({
    mongoUrl : dbUrl,
