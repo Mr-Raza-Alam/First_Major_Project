@@ -24,7 +24,7 @@ try{// here i include custom validation
   });
   }catch(err){
    req.flash("error",err.message);
-   res.redirect("/signup");
+   res.redirect("/listings/signup");
   }
  };
 

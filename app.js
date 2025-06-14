@@ -3,6 +3,9 @@
 //    require('dotenv').config();
 //  }
  //console.log(process.env.MAP_TOKEN);
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
+}
 
  const express = require("express");
  const path = require("path");
@@ -46,7 +49,7 @@ store.on("error",()=>{
    store,
    secret : process.env.SECRET,
    resave : false,
-   saveUninitialized : true,
+   saveUninitialized : false,// not true b/c it prevent from empty session info storage
    cookie : {
     // Date.now() return current date + after how much ms time the session will deleted automatically let say 7days
       expires : new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
