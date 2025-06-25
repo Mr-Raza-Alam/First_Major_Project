@@ -1,8 +1,14 @@
 <!-- This template is for displaying search body -->
+<style>
+  .backBtn{
+    height: 3rem;
+    transform: translate(-22rem,4rem);
+  }
+</style>
 
  <% layout("/layouts/boilierPlate") -%>
- 
- <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+  <a href="/listings/back" class="btn btn-secondary backBtn">&lt;&lt;Back</a>
+ <div class="row mb-3">
    <% for(let list of requestedListing){ %>
    <div class="card col listing-card">
     <a href="/listings/<%= list._id %>" class="listing-link">
@@ -20,6 +26,6 @@
       <a href="/listings/<%= list._id %>" class="btn btn-primary">Know more>></a>
      </div>
    </div>
-
    <% } %>
  </div>
+

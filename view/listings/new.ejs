@@ -2,17 +2,15 @@
 <!-- now i am going to include boilerplate code of ejs-Mate -->
  <% layout("/layouts/boilierPlate") -%>
 <body>
-  <div class="row">
+  <div class="row ">
  <form method="post" action="/listings" novalidate class="createForm needs-validation" enctype="multipart/form-data"> 
    <!-- here client site validations are also included in it -->
-   <div class="col-8 offset-2" >
+   <div class="col-12 offset-2" >
      <h3 style="text-align: center;">Create a new list</h3>
     <div class="mb-3">
      <label for="tit" class="form-label"><b>Title</b></label>
      <input type="text"  name="listing[title]" class="form-control" id="tit" placeholder="Add a cachy title" required/>
-    <div class="valid-feedback">
-      Valid Title!!Looks Good.
-     </div>
+ 
      <div class="invalid-feedback">
       <b>Oops your are missing to mention the <u>Title</u>.</b>
      </div>
@@ -21,9 +19,7 @@
    <div class="mb-3">
     <label for="desc" class="form-label"> <b>Description </label>
     <textarea name="listing[description]" id="desc" rows="6" cols="45" class="form-control" required></textarea>
-    <div class="valid-feedback">
-      Okay fine!!.
-     </div>
+
     <div class="invalid-feedback">
       You missed to drop your description.Please Mention Once!!.
      </div>
@@ -43,9 +39,7 @@
     <div class="mb-3 col-md-4">
      <label for="price" class="form-label">Price</label>
      <input type="text" name="listing[price]" class="form-control" id="price" placeholder="1390" required >
-     <div class="valid-feedback">
-       successfully price has mention.Thank you!!.
-     </div>
+
     <div class="invalid-feedback">
       What is the price??
      </div>
@@ -54,9 +48,7 @@
     <div class="mb-3 col-md-8">
     <label for="count" class="form-label">Country</label>
     <input type="text" id="count" name="listing[country]" class="form-control" placeholder="India">
-    <div class="valid-feedback">
-      Peaceful country.
-     </div>
+
     <div class="invalid-feedback">
       In which country,your resisdent is located??
      </div>
@@ -67,9 +59,7 @@
     <div class="mb-3">
      <label for="locate" class="form-label" >Location</label>
     <input type="text" class="form-control" name="listing[location]" id="locate" placeholder="Assam,Punjab" required>
-    <div class="valid-feedback">
-      Nice Location!!Looking Good.
-     </div>
+
     <div class="invalid-feedback">
       Don't missed it to mention your current resisdent location!!.
      </div>
