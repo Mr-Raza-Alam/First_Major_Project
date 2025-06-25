@@ -31,23 +31,23 @@ app.use(express.urlencoded({extended : true}));
 app.use(express.static(path.join(__dirname,"public")));
  app.use(methodOverride("_method"));
  
- const dbUrl = process.env.ATLASDB_URL;
- if (process.env.NODE_ENV === "production") {
-  app.set("trust proxy", 1);
-}
+//  const dbUrl = process.env.ATLASDB_URL;
+//  if (process.env.NODE_ENV === "production") {
+//   app.set("trust proxy", 1);
+// }
  
- const store = mongoStore.create({
-   mongoUrl : dbUrl,
-   crypto : {
-     secret : process.env.SECRET  ,     
-   },
-   touchAfter : 24 * 3600, // i.e. 24 hrs
-});
-store.on("error",()=>{
-  console.log(`ERROR in mongo Session Store and error is : ${err}`)
-});
+//  const store = mongoStore.create({
+//    mongoUrl : dbUrl,
+//    crypto : {
+//      secret : process.env.SECRET  ,     
+//    },
+//    touchAfter : 24 * 3600, // i.e. 24 hrs
+// });
+// store.on("error",()=>{
+//   console.log(`ERROR in mongo Session Store and error is : ${err}`)
+// });
  const sessionOption = {
-   store,
+   //store,
    secret : process.env.SECRET,
    resave : false,
    saveUninitialized : false,// not true b/c it prevent from empty session info storage
@@ -63,7 +63,7 @@ store.on("error",()=>{
 // now established DataBase connection
 async function main(){
 //   "mongodb://127.0.0.1:27017/wanderTust"
-   await mongoose.connect(dbUrl);
+   await mongoose.connect("mongodb://127.0.0.1:27017/wanderTust");
 }
  // call main function
  main().then((res)=>{

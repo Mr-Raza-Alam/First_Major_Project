@@ -17,13 +17,15 @@
       <p><b>&#8377;<%= showList.price.toLocaleString("en-IN")%>/3nights</b></p>
      <p> <%= showList.location %></p>
      <p> <%= showList.country %> </p>
-    <div class="cardBody">
-    <a href="/listings/<%= showList._id %>/edit" class="btn btn-primary">Edit &gt;&gt;</a>
-    <form method="post" action="/listings/<%= showList._id %>?_method=DELETE">
-        <button id="delBtn" type="submit" class="btn btn-danger">Delete</button>
-        </form>
+      <% if(currUser){ %>
+      <div class="cardBody">
+      <a href="/listings/<%= showList._id %>/edit" class="btn btn-primary">Edit &gt;&gt;</a>
+      <form method="post" action="/listings/<%= showList._id %>?_method=DELETE">
+      <button id="delBtn" type="submit" class="btn btn-danger">Delete</button>
+     </form>
      </div>
-   </div>
+    <%}%>    
+    </div>
   </div>
 
   <div class="col-8 offset-3">
