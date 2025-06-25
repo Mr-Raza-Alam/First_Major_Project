@@ -8,6 +8,10 @@ body{
   min-height: 100vh;
 }
 .container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
   margin-top: 2rem;
   flex: 1;
 }
@@ -161,7 +165,7 @@ body{
 
 /* Show Page */
 .show-img{
-  height: 30vh;
+  height: 40vh;
 }
 
 .cardBody{
@@ -196,3 +200,95 @@ body{
   border: 2px solid;
   border-radius: 1rem;
  }
+ /* This is to bring resposiveness  */
+
+@media (max-width : 580px){
+
+ body {
+    padding: 0.5rem !important;
+  }
+
+  #filters {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem !important;
+    scroll-behavior: smooth !important;
+  }
+
+  .filter {
+    flex: 0 0 auto !important;
+    width: 80px !important;
+    margin-right: 0.5rem !important;
+    font-size: 0.75rem !important;
+    text-align: center !important;
+  }
+
+  .filter div i {
+    font-size: 1.2rem !important;
+  }
+
+  .filter p {
+    font-size: 0.7rem !important;
+  }
+
+   /* .tax-toggle{
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-right: 1rem;
+   } */
+
+   .listing-card {
+    flex: 0 0 90% !important;
+    max-width: 90%!important;
+    margin: 0 auto 1rem auto !important;
+  }
+
+  .card .card-body {
+    padding: 0.75rem !important;
+  }
+
+  .card .card-title {
+    font-size: 1rem !important;
+  }
+
+  .card .card-text {
+    font-size: 0.9rem !important;
+  }
+
+  .btn {
+    font-size: 0.8rem !important;
+    padding: 0.3rem 0.75rem !important;
+  }
+
+#filters::-webkit-scrollbar {
+  height: 6px !important;
+}
+#filters::-webkit-scrollbar-thumb {
+  background: #bbb !important;
+  border-radius: 4px !important;
+}
+
+.navbar-nav {
+    background-color: #ffffff;
+    opacity: 1 !important;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-nav a {
+    color: #000 !important;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .navbar-collapse {
+    background-color: #fff;
+  }
+}

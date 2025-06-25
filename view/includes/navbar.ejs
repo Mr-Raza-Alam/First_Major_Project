@@ -34,9 +34,9 @@
         <!-- <a class="nav-link active" aria-current="page" href="/">Home</a> -->
         <a class="nav-link" href="/listings">Explore</a>
       </div>
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search" action="/listings" method="get">
-         <input class="form-control me-2 srchBar" type="search" placeholder="Search Destinations" aria-label="Search"/>
+      <div class="navbar-nav ms-auto searchBox">
+        <form class="d-flex" role="search" action="/listings/search" method="post">
+         <input name="searchLocation" class="form-control me-2 srchBar" type="search" placeholder="Search Destinations." aria-label="Search" autocomplete="on"/>
          <button class="btn btn-outline-success srchBtn" type="submit"><i class="fa-brands fa-searchengin"></i>Search</button>
         </form>
       </div>

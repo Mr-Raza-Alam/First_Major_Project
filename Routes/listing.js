@@ -6,7 +6,7 @@ const router = express.Router();
  const {isloggedIn, isOwner,validListing, validImgSize} = require("../middleware.js");
  // require Listing model from models directory
 const list = require("../models/listing.js");
-const {index, showListing, editForm, updateListing,destroyListing, createListing, newListForm} = require("../Controllers/listings.js");
+const {index, showListing, editForm, updateListing,destroyListing, createListing, newListForm,searchAction} = require("../Controllers/listings.js");
 const multer = require('multer');
 const {storage} = require("../cloudconfig.js");
 const upload = multer({storage});// now the file or image(size = 1.4MB) will be uploaded on storage i.e on cloudinary
@@ -29,6 +29,8 @@ const upload = multer({storage});// now the file or image(size = 1.4MB) will be 
     
   // New Route-- for getting a form for creating new information insertion from client site 
  router.get("/new",isloggedIn,newListForm); 
+ router.post("/search",wrapAsync(searchAction))
+
 router.route("/:id")
      .get(wrapAsync(showListing))// show Route--- for all individual  list
      .put(isloggedIn,isOwner,upload.single('listing[image]'),validImgSize,validListing,wrapAsync(updateListing))// Update Route--- To update the value

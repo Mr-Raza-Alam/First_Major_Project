@@ -1,4 +1,5 @@
 // in this  file we write backened core functionality for the listings
+const { options } = require("joi");
 const list = require("../models/listing.js");
 
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding'); // here we access the service for geocoding
@@ -88,5 +89,14 @@ module.exports.createListing = async(req,res)=>{
    res.redirect("/listings");
  };
 
+ module.exports.searchAction = async(req,res)=>{
+    let {searchLocation} = req.body;
+    let requestedListing = await list.find({location : {$regex : searchLocation , $options: "i"}});
+    if(requestedListing.length === 0){
+      req.flash("error","Ooops!No such listings are avialable on requested location.");
+      return res.redirect("/listings");
+    }
+    res.render("listings/searchList.ejs",{requestedListing});
+  };  
 
 //  originalImageUrl = originalImageUrl.replace("/upload","/upload/w_250")// since originalImageUrl is a string so i can apply string method to transforme(height,width,color,crop-related properties) the existing image
