@@ -3,4 +3,6 @@ Hi and welcome to skill learning and practice class , i am going to build a full
 just give me 2days to complete because i have to also looked into Acedemic Section 
 
 # Full Stack Project with Raza Alam
+# Deployed link is : 
+ https://wa-wfh4.onrender.com/listings
 
